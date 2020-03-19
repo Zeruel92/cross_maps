@@ -49,7 +49,7 @@ class MobileMaps implements CrossMaps {
 
   @override
   void addMarker(double lat, double lng, String title) async {
-    _maps.markers.add(
+    markers.add(
       Marker(
           markerId: MarkerId('$title'),
           position: LatLng(lat, lng),
