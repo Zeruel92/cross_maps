@@ -10,7 +10,8 @@ class WebMaps implements CrossMaps {
   List<Marker> markers = <Marker>[];
 
   @override
-  Widget getMaps(double lat, double lng, String title, {Function onTap,List<double> poly_lats, List<double> poly_lngs}) {
+  Widget getMaps(double lat, double lng, String title,
+      {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     String htmlId = "7";
     final mapOptions = MapOptions()
       ..zoom = 8
