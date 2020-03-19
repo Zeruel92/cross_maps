@@ -9,6 +9,7 @@ class MobileMaps implements CrossMaps {
   Completer<GoogleMapController> _controller = Completer();
   GoogleMap _maps;
   Set<Marker> markers;
+  Set<Polyline> polylines;
 
   MobileMaps() {
     markers = Set<Marker>();
@@ -24,6 +25,7 @@ class MobileMaps implements CrossMaps {
         _controller.complete(controller);
       },
       markers: markers,
+      polylines: polylines,
     );
     addMarker(lat, lng, title);
     return _maps;
@@ -33,8 +35,9 @@ class MobileMaps implements CrossMaps {
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path;
     for (int i = 0; i < lats.length; i++) {
-      path.add(LatLng(lats[i], lngs[1]));
+      path.add(LatLng(lats[i], lngs[i]));
     }
+    polylines.add(Polyline(points: path,polylineId: PolylineId('percorso')));
   }
 
   @override
