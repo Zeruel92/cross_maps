@@ -9,8 +9,6 @@ GMap _gmap;
 List<Marker> markers = <Marker>[];
 
 class WebMaps implements CrossMaps {
-
-
   @override
   Widget getMaps(double lat, double lng, String title,
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {

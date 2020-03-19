@@ -10,9 +10,7 @@ GoogleMap _maps;
 Set<Marker> markers;
 Set<Polyline> polylines;
 
-
 class MobileMaps implements CrossMaps {
-
   MobileMaps() {
     markers = Set<Marker>();
   }
