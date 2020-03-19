@@ -11,6 +11,7 @@ class WebMaps implements CrossMaps {
   @override
   Widget getMaps(double lat, double lng, String title) {
     clearMarkers();
+    _gmap = null;
     String htmlId = "7";
 
     final mapOptions = MapOptions()
