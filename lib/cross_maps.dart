@@ -1,0 +1,12 @@
+library cross_maps;
+
+import 'package:flutter/material.dart';
+
+import 'cross_maps_stub.dart'
+    if (dart.library.io) 'mobile_maps.dart'
+    if (dart.library.html) 'mobile_maps.dart';
+
+abstract class CrossMaps {
+  Widget getMaps(double lat, double lng);
+  factory CrossMaps() => getCrossMaps();
+}
