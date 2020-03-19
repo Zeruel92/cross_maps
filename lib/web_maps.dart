@@ -27,17 +27,22 @@ class WebMaps implements CrossMaps {
         ..style.border = 'none';
       _gmap = GMap(elem, mapOptions);
 
-      Marker(MarkerOptions()
-        ..position = LatLng(lat, lng)
-        ..map = _gmap
-        ..title = "Posizione: $title"
-        ..clickable = true
-        ..draggable = true);
+      addMarker(lat, lng, title);
 
       return elem;
     });
 
     return HtmlElementView(viewType: htmlId);
+  }
+
+  @override
+  void addMarker(double lat, double lng, String title) {
+    Marker(MarkerOptions()
+      ..position = LatLng(lat, lng)
+      ..map = _gmap
+      ..title = "Posizione: $title"
+      ..clickable = true
+      ..draggable = true);
   }
 
   @override

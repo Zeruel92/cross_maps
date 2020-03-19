@@ -18,18 +18,24 @@ class MobileMaps implements CrossMaps {
         _controller.complete(controller);
       },
     );
-    _maps.markers.add(
-      Marker(
-        markerId: MarkerId('$title'),
-        position: LatLng(lat, lng),
-      ),
-    );
+    addMarker(lat, lng, title);
     return _maps;
   }
 
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
     // TODO: implement setPolyline
+  }
+
+  @override
+  void addMarker(double lat, double lng, String title) async {
+    await _controller.future;
+    _maps.markers.add(
+      Marker(
+        markerId: MarkerId('$title'),
+        position: LatLng(lat, lng),
+      ),
+    );
   }
 }
 
