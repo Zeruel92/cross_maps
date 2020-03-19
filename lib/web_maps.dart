@@ -5,10 +5,15 @@ import 'package:cross_maps/cross_maps.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps/google_maps.dart';
 
-GMap _gmap;
-List<Marker> markers = <Marker>[];
-
 class WebMaps implements CrossMaps {
+  static final WebMaps _instance = WebMaps._WebMaps();
+  static WebMaps get instance => _instance;
+
+  GMap _gmap;
+  List<Marker> markers = <Marker>[];
+
+  WebMaps._WebMaps() {}
+
   @override
   Widget getMaps(double lat, double lng, String title,
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
@@ -68,4 +73,4 @@ class WebMaps implements CrossMaps {
   }
 }
 
-CrossMaps getCrossMaps() => WebMaps();
+CrossMaps getCrossMaps() => WebMaps.instance;
