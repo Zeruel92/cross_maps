@@ -7,7 +7,7 @@ import 'cross_maps_stub.dart'
     if (dart.library.html) 'web_maps.dart';
 
 abstract class CrossMaps {
-  Widget getMaps(double lat, double lng,String title);
+  Widget getMaps(double lat, double lng, String title);
   void setPolyline(List<double> lats, List<double> lngs);
   factory CrossMaps() => getCrossMaps();
 }
