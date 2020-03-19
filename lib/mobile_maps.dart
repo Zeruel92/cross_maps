@@ -10,7 +10,7 @@ class MobileMaps implements CrossMaps {
   GoogleMap _maps;
 
   @override
-  Widget getMaps(double lat, double lng) {
+  Widget getMaps(double lat, double lng, String title) {
     _maps = GoogleMap(
       mapType: MapType.hybrid,
       initialCameraPosition: CameraPosition(target: LatLng(lat, lng)),
@@ -20,7 +20,7 @@ class MobileMaps implements CrossMaps {
     );
     _maps.markers.add(
       Marker(
-        markerId: MarkerId('center position'),
+        markerId: MarkerId('$title'),
         position: LatLng(lat, lng),
       ),
     );

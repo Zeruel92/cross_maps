@@ -9,7 +9,7 @@ class WebMaps implements CrossMaps {
   GMap _gmap;
 
   @override
-  Widget getMaps(double lat, double lng) {
+  Widget getMaps(double lat, double lng, String title) {
     String htmlId = "7";
 
     final mapOptions = MapOptions()
@@ -30,7 +30,7 @@ class WebMaps implements CrossMaps {
       Marker(MarkerOptions()
         ..position = LatLng(lat, lng)
         ..map = _gmap
-        ..title = "Position"
+        ..title = "Posizione: $title"
         ..clickable = true
         ..draggable = true);
 
