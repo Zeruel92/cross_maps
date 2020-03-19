@@ -12,9 +12,9 @@ class WebMaps implements CrossMaps {
   Widget getMaps(double lat, double lng) {
     String htmlId = "7";
 
-    final mapOptions = new MapOptions()
+    final mapOptions = MapOptions()
       ..zoom = 8
-      ..center = new LatLng(lat, lng)
+      ..center = LatLng(lat, lng)
       ..mapTypeId = MapTypeId.TERRAIN
       ..backgroundColor = '#ffffff';
 
@@ -31,6 +31,17 @@ class WebMaps implements CrossMaps {
     });
 
     return HtmlElementView(viewType: htmlId);
+  }
+
+  @override
+  void setPolyline(List<double> lats, List<double> lngs) {
+    List<LatLng> path;
+    for (int i = 0; i < lats.length; i++) {
+      path.add(LatLng(lats[i], lngs[1]));
+    }
+    Polyline(PolylineOptions()
+      ..map = _gmap
+      ..path = path);
   }
 }
 

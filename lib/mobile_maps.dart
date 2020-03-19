@@ -8,6 +8,11 @@ class MobileMaps implements CrossMaps {
     // TODO: implement getMaps
     throw UnimplementedError();
   }
+
+  @override
+  void setPolyline(List<double> lats, List<double> lngs) {
+    // TODO: implement setPolyline
+  }
 }
 
 CrossMaps getCrossMaps() => MobileMaps();
