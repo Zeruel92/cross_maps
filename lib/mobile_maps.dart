@@ -5,13 +5,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'cross_maps.dart';
 
-Completer<GoogleMapController> _controller = Completer();
-GoogleMap _maps;
-Set<Marker> markers;
-Set<Polyline> polylines;
-
 class MobileMaps implements CrossMaps {
-  MobileMaps() {
+  static final MobileMaps _instance = MobileMaps._MobileMaps();
+  static MobileMaps get instance => _instance;
+
+  Completer<GoogleMapController> _controller = Completer();
+  GoogleMap _maps;
+  Set<Marker> markers;
+  Set<Polyline> polylines;
+
+  MobileMaps._MobileMaps() {
     markers = Set<Marker>();
     polylines = Set<Polyline>();
   }
@@ -56,4 +59,4 @@ class MobileMaps implements CrossMaps {
   }
 }
 
-CrossMaps getCrossMaps() => MobileMaps();
+CrossMaps getCrossMaps() => MobileMaps.instance;

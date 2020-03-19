@@ -60,7 +60,7 @@ class WebMaps implements CrossMaps {
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path = [];
     for (int i = 0; i < lats.length; i++) {
-      path.add(LatLng(lats[i], lngs[1]));
+      path.add(LatLng(lats[i], lngs[i]));
     }
     Polyline(PolylineOptions()
       ..map = _gmap
