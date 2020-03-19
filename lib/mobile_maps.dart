@@ -37,7 +37,7 @@ class MobileMaps implements CrossMaps {
 
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
-    List<LatLng> path;
+    List<LatLng> path = List<LatLng>();
     for (int i = 0; i < lats.length; i++) {
       path.add(LatLng(lats[i], lngs[i]));
     }
