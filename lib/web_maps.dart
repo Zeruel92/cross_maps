@@ -8,12 +8,10 @@ import 'package:google_maps/google_maps.dart';
 class WebMaps implements CrossMaps {
   GMap _gmap;
   List<Marker> markers = <Marker>[];
+
   @override
   Widget getMaps(double lat, double lng, String title) {
-    clearMarkers();
-    _gmap = null;
     String htmlId = "7";
-
     final mapOptions = MapOptions()
       ..zoom = 8
       ..center = LatLng(lat, lng)
@@ -22,7 +20,7 @@ class WebMaps implements CrossMaps {
 
 // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(htmlId, (int viewId) {
-      final elem = DivElement()
+      var elem = DivElement()
         ..id = htmlId
         ..style.width = "100%"
         ..style.height = "100%"
