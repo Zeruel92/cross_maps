@@ -1,12 +1,24 @@
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'cross_maps.dart';
 
 class MobileMaps implements CrossMaps {
+  Completer<GoogleMapController> _controller = Completer();
+  GoogleMap _maps;
+
   @override
   Widget getMaps(double lat, double lng) {
-    // TODO: implement getMaps
-    throw UnimplementedError();
+    _maps = GoogleMap(
+      mapType: MapType.hybrid,
+      initialCameraPosition: CameraPosition(target: LatLng(lat, lng)),
+      onMapCreated: (GoogleMapController controller) {
+        _controller.complete(controller);
+      },
+    );
+    return _maps;
   }
 
   @override
