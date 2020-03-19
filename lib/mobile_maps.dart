@@ -45,9 +45,10 @@ class MobileMaps implements CrossMaps {
   void addMarker(double lat, double lng, String title) async {
     markers.add(
       Marker(
-        markerId: MarkerId('$title'),
-        position: LatLng(lat, lng),
-      ),
+          markerId: MarkerId('$title'),
+          position: LatLng(lat, lng),
+          icon: BitmapDescriptor.defaultMarkerWithHue(
+              BitmapDescriptor.hueMagenta)),
     );
   }
 }
