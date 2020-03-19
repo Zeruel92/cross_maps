@@ -1,6 +1,7 @@
 # cross_maps
 
-A new Flutter project.
+A cross platform for web and mobile for showing google maps that combine [Google Maps Flutter][1] for mobile and 
+[Google Maps][2] for web.
 
 ## Installing
 
@@ -20,6 +21,13 @@ CrossMaps crossMaps = CrossMaps();
 crossMaps.getMaps(lat,lng);
 ```
 
+Adding a Polyline
+
+```dart
+List<double> lats;
+List<double> lngs;
+crossMaps.setPolyline(lats,lngs);
+```
 [//]: #Links
-[1]: https://pub.dev/packages/image_picker
-[2]: https://pub.dev/packages/universal_html
+[1]: https://pub.dev/packages/google_maps_flutter
+[2]: https://pub.dev/packages/google_maps
