@@ -26,12 +26,9 @@ class WebMaps implements CrossMaps {
         ..style.height = "100%"
         ..style.border = 'none';
       _gmap = GMap(elem, mapOptions);
-
-      addMarker(lat, lng, title);
-
       return elem;
     });
-
+    addMarker(lat, lng, title);
     return HtmlElementView(viewType: htmlId);
   }
 
