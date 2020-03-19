@@ -8,15 +8,21 @@ import 'cross_maps.dart';
 class MobileMaps implements CrossMaps {
   Completer<GoogleMapController> _controller = Completer();
   GoogleMap _maps;
+  Set<Marker> markers;
+
+  MobileMaps() {
+    markers = Set<Marker>();
+  }
 
   @override
   Widget getMaps(double lat, double lng, String title) {
+    markers.clear();
     _maps = GoogleMap(
-      mapType: MapType.hybrid,
       initialCameraPosition: CameraPosition(target: LatLng(lat, lng)),
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
+      markers: markers,
     );
     addMarker(lat, lng, title);
     return _maps;
@@ -29,8 +35,7 @@ class MobileMaps implements CrossMaps {
 
   @override
   void addMarker(double lat, double lng, String title) async {
-    await _controller.future;
-    _maps.markers.add(
+    markers.add(
       Marker(
         markerId: MarkerId('$title'),
         position: LatLng(lat, lng),
