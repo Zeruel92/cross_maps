@@ -16,7 +16,7 @@ class MobileMaps implements CrossMaps {
   }
 
   @override
-  Widget getMaps(double lat, double lng, String title) {
+  Widget getMaps(double lat, double lng, String title, {Function onTap}) {
     markers.clear();
     _maps = GoogleMap(
       initialCameraPosition:
@@ -24,6 +24,7 @@ class MobileMaps implements CrossMaps {
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
+      onTap: onTap,
       markers: markers,
       polylines: polylines,
     );
