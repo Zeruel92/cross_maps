@@ -13,6 +13,7 @@ Set<Polyline> polylines;
 class MobileMaps implements CrossMaps {
   MobileMaps() {
     markers = Set<Marker>();
+    polylines = Set<Polyline>();
   }
 
   @override
