@@ -18,6 +18,7 @@ class MobileMaps implements CrossMaps {
         _controller.complete(controller);
       },
     );
+    _maps.markers.add(Marker(position: LatLng(lat, lng)));
     return _maps;
   }
 

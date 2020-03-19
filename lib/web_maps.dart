@@ -27,6 +27,13 @@ class WebMaps implements CrossMaps {
         ..style.border = 'none';
       _gmap = GMap(elem, mapOptions);
 
+      Marker(MarkerOptions()
+        ..position = LatLng(lat, lng)
+        ..map = _gmap
+        ..title = "Position"
+        ..clickable = true
+        ..draggable = true);
+
       return elem;
     });
 
