@@ -26,6 +26,10 @@ class WebMaps implements CrossMaps {
         ..style.height = "100%"
         ..style.border = 'none';
       _gmap = GMap(elem, mapOptions);
+      _gmap.onClick.listen((event) {
+        onTap(event.latLng.lat, event.latLng.lng);
+      });
+
       addMarker(lat, lng, title);
       return elem;
     });
