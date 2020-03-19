@@ -16,8 +16,10 @@ class MobileMaps implements CrossMaps {
   }
 
   @override
-  Widget getMaps(double lat, double lng, String title, {Function onTap}) {
+  Widget getMaps(double lat, double lng, String title,
+      {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     markers.clear();
+    setPolyline(poly_lats, poly_lngs);
     _maps = GoogleMap(
       initialCameraPosition:
           CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
