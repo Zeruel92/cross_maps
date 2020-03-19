@@ -38,7 +38,6 @@ class WebMaps implements CrossMaps {
 
   @override
   void addMarker(double lat, double lng, String title) {
-    clearMarkers();
     Marker marker = Marker(MarkerOptions()
       ..position = LatLng(lat, lng)
       ..map = _gmap
