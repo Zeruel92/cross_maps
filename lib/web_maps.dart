@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps/google_maps.dart';
 
 class WebMaps implements CrossMaps {
+  GMap _gmap;
+
   @override
   Widget getMaps(double lat, double lng) {
     String htmlId = "7";
@@ -23,6 +25,7 @@ class WebMaps implements CrossMaps {
         ..style.width = "100%"
         ..style.height = "100%"
         ..style.border = 'none';
+      _gmap = GMap(elem, mapOptions);
 
       return elem;
     });
