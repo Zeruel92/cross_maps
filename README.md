@@ -2,13 +2,24 @@
 
 A new Flutter project.
 
-## Getting Started
+## Installing
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+- Add into pubspec.yaml 
+```yaml
+cross_picker:
+    git:
+      url: https://github.com/pspgt/cross_maps.git
+```
+- run `flutter pub get`
+- Now import with `import 'package:cross_maps/cross_maps.dart';`
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# Example 
+
+```dart
+CrossMaps crossMaps = CrossMaps();
+crossMaps.getMaps(lat,lng);
+```
+
+[//]: #Links
+[1]: https://pub.dev/packages/image_picker
+[2]: https://pub.dev/packages/universal_html
