@@ -7,7 +7,7 @@ import 'package:google_maps/google_maps.dart';
 
 class WebMaps implements CrossMaps {
   GMap _gmap;
-  final markers = <Marker>[];
+  List<Marker> markers = <Marker>[];
   @override
   Widget getMaps(double lat, double lng, String title) {
     clearMarkers();
@@ -28,9 +28,9 @@ class WebMaps implements CrossMaps {
         ..style.height = "100%"
         ..style.border = 'none';
       _gmap = GMap(elem, mapOptions);
+      addMarker(lat, lng, title);
       return elem;
     });
-    addMarker(lat, lng, title);
     return HtmlElementView(viewType: htmlId);
   }
 
