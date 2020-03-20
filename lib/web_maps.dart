@@ -7,6 +7,7 @@ import 'package:google_maps/google_maps.dart';
 
 class WebMaps implements CrossMaps {
   static final WebMaps _instance = WebMaps._WebMaps();
+
   static WebMaps get instance => _instance;
 
   GMap _gmap;
@@ -64,12 +65,14 @@ class WebMaps implements CrossMaps {
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path = [];
-    for (int i = 0; i < lats.length; i++) {
-      path.add(LatLng(lats[i], lngs[i]));
+    if ((lats != null) && (lngs != null)){
+      for (int i = 0; i < lats.length; i++) {
+        path.add(LatLng(lats[i], lngs[i]));
+      }
+      Polyline(PolylineOptions()
+        ..map = _gmap
+        ..path = path);
     }
-    Polyline(PolylineOptions()
-      ..map = _gmap
-      ..path = path);
   }
 }
 

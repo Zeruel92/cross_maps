@@ -7,6 +7,7 @@ import 'cross_maps.dart';
 
 class MobileMaps implements CrossMaps {
   static final MobileMaps _instance = MobileMaps._MobileMaps();
+
   static MobileMaps get instance => _instance;
 
   Completer<GoogleMapController> _controller = Completer();
@@ -26,7 +27,7 @@ class MobileMaps implements CrossMaps {
     setPolyline(poly_lats, poly_lngs);
     _maps = GoogleMap(
       initialCameraPosition:
-          CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
+      CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
@@ -41,10 +42,12 @@ class MobileMaps implements CrossMaps {
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path = List<LatLng>();
-    for (int i = 0; i < lats.length; i++) {
-      path.add(LatLng(lats[i], lngs[i]));
+    if ((lats != null) && (lngs !=null)) {
+      for (int i = 0; i < lats.length; i++) {
+        path.add(LatLng(lats[i], lngs[i]));
+      }
+      polylines.add(Polyline(points: path, polylineId: PolylineId('percorso')));
     }
-    polylines.add(Polyline(points: path, polylineId: PolylineId('percorso')));
   }
 
   @override
