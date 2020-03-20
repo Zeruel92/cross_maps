@@ -1,7 +1,9 @@
+import 'dart:html';
+import 'dart:ui' as ui;
+
 import 'package:cross_maps/cross_maps.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps/google_maps.dart';
-
 
 class WebMaps implements CrossMaps {
   static final WebMaps _instance = WebMaps._WebMaps();
@@ -66,8 +68,8 @@ class WebMaps implements CrossMaps {
         ..style.width = "100%"
         ..style.height = "100%"
         ..style.border = 'none';
-      _gmap = GMap(elem, mapOptions);
-      _gmap.onClick.listen((event) {
+      _map = GMap(elem, mapOptions);
+      _map.onClick.listen((event) {
         onTap(event.latLng.lat, event.latLng.lng);
       });
       addMarker(lat, lng, title);
@@ -92,10 +94,10 @@ class WebMaps implements CrossMaps {
         ..style.width = "100%"
         ..style.height = "100%"
         ..style.border = 'none';
-      _gmap = GMap(elem, mapOptions);
+      _map = GMap(elem, mapOptions);
       Marker marker = Marker(MarkerOptions()
         ..position = LatLng(lat, lng)
-        ..map = _gmap
+        ..map = _map
         ..title = "Posizione: $title"
         ..clickable = true
         ..draggable = true);
@@ -119,7 +121,7 @@ class WebMaps implements CrossMaps {
         path.add(LatLng(lats[i], lngs[i]));
       }
       Polyline(PolylineOptions()
-        ..map = _gmap
+        ..map = _map
         ..path = path);
     }
   }
