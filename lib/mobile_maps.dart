@@ -10,7 +10,7 @@ class MobileMaps implements CrossMaps {
 
   static MobileMaps get instance => _instance;
 
-  Completer<GoogleMapController> _controller = Completer();
+  Completer<GoogleMapController> _controller;
   GoogleMap _maps;
   Set<Marker> markers;
   Set<Polyline> polylines;
@@ -25,6 +25,7 @@ class MobileMaps implements CrossMaps {
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     markers.clear();
     setPolyline(poly_lats, poly_lngs);
+    _controller = Completer();
     _maps = GoogleMap(
       initialCameraPosition:
           CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
