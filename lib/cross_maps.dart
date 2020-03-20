@@ -10,8 +10,7 @@ abstract class CrossMaps {
   Widget getMaps(double lat, double lng, String title,
       {Function onTap,
       List<double> poly_lats,
-      List<double> poly_lngs,
-      String mapbox});
+      List<double> poly_lngs});
   void setPolyline(List<double> lats, List<double> lngs);
   void addMarker(double lat, double lng, String title);
   factory CrossMaps() => getCrossMaps();
