@@ -24,6 +24,7 @@ class MobileMaps implements CrossMaps {
   Widget getMaps(double lat, double lng, String title,
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     markers.clear();
+    polylines.clear();
     setPolyline(poly_lats, poly_lngs);
     _controller = Completer();
     _maps = GoogleMap(
