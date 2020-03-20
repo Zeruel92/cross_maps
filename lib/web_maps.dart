@@ -19,7 +19,7 @@ class WebMaps implements CrossMaps {
   Widget getMaps(double lat, double lng, String title,
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     String htmlId = "7";
-    if(_gmap != null) {
+    if (_gmap != null) {
       final mapOptions = MapOptions()
         ..zoom = 8
         ..center = LatLng(lat, lng)
@@ -41,8 +41,8 @@ class WebMaps implements CrossMaps {
         setPolyline(poly_lats, poly_lngs);
         return elem;
       });
-    }else{
-      _gmap.center=LatLng(lat,lng);
+    } else {
+      _gmap.center = LatLng(lat, lng);
       clearMarkers();
       addMarker(lat, lng, title);
     }
