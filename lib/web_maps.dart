@@ -40,7 +40,7 @@ class WebMaps implements CrossMaps {
         zoom: 12,
       ),
     );
-    addMarker(lat, lng, title);
+    //addMarker(lat, lng, title);
     return Container();
   }
 
