@@ -48,7 +48,11 @@ class MobileMaps implements CrossMaps {
       for (int i = 0; i < lats.length; i++) {
         path.add(LatLng(lats[i], lngs[i]));
       }
-      polylines.add(Polyline(points: path, polylineId: PolylineId('percorso')));
+      polylines.add(Polyline(
+          points: path,
+          polylineId: PolylineId('percorso'),
+          width: 1.0,
+          color: Colors.green));
     }
   }
 
