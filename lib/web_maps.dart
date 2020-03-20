@@ -16,7 +16,12 @@ class WebMaps implements CrossMaps {
 
   @override
   void addMarker(double lat, double lng, String title) {
-    // TODO: implement addMarker
+    Marker marker = Marker(
+      MarkerOptions(
+        draggable: true,
+      ),
+    ).setLngLat(LngLat(lng, lat)).addTo(_map);
+    markers.add(marker);
   }
 
   @override
@@ -35,6 +40,8 @@ class WebMaps implements CrossMaps {
         zoom: 12,
       ),
     );
+    addMarker(lat, lng, title);
+    return Container();
   }
 
   @override
