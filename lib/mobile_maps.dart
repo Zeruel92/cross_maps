@@ -51,7 +51,7 @@ class MobileMaps implements CrossMaps {
       polylines.add(Polyline(
           points: path,
           polylineId: PolylineId('percorso'),
-          width: 1,
+          width: 2,
           color: Colors.green));
     }
   }
