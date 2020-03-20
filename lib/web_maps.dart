@@ -19,28 +19,33 @@ class WebMaps implements CrossMaps {
   Widget getMaps(double lat, double lng, String title,
       {Function onTap, List<double> poly_lats, List<double> poly_lngs}) {
     String htmlId = "7";
-    final mapOptions = MapOptions()
-      ..zoom = 8
-      ..center = LatLng(lat, lng)
-      ..mapTypeId = MapTypeId.TERRAIN
-      ..backgroundColor = '#ffffff';
+    if(_gmap != null) {
+      final mapOptions = MapOptions()
+        ..zoom = 8
+        ..center = LatLng(lat, lng)
+        ..mapTypeId = MapTypeId.TERRAIN
+        ..backgroundColor = '#ffffff';
 
 // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(htmlId, (int viewId) {
-      var elem = DivElement()
-        ..id = htmlId
-        ..style.width = "100%"
-        ..style.height = "100%"
-        ..style.border = 'none';
-      _gmap = GMap(elem, mapOptions);
-      _gmap.onClick.listen((event) {
-        onTap(event.latLng.lat, event.latLng.lng);
+      ui.platformViewRegistry.registerViewFactory(htmlId, (int viewId) {
+        var elem = DivElement()
+          ..id = htmlId
+          ..style.width = "100%"
+          ..style.height = "100%"
+          ..style.border = 'none';
+        _gmap = GMap(elem, mapOptions);
+        _gmap.onClick.listen((event) {
+          onTap(event.latLng.lat, event.latLng.lng);
+        });
+        addMarker(lat, lng, title);
+        setPolyline(poly_lats, poly_lngs);
+        return elem;
       });
-
+    }else{
+      _gmap.center=LatLng(lat,lng);
+      clearMarkers();
       addMarker(lat, lng, title);
-      setPolyline(poly_lats, poly_lngs);
-      return elem;
-    });
+    }
     return HtmlElementView(viewType: htmlId);
   }
 
