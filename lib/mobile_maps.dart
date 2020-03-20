@@ -27,7 +27,7 @@ class MobileMaps implements CrossMaps {
     setPolyline(poly_lats, poly_lngs);
     _maps = GoogleMap(
       initialCameraPosition:
-      CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
+          CameraPosition(target: LatLng(lat, lng), zoom: 11.0),
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
@@ -42,7 +42,7 @@ class MobileMaps implements CrossMaps {
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path = List<LatLng>();
-    if ((lats != null) && (lngs !=null)) {
+    if ((lats != null) && (lngs != null)) {
       for (int i = 0; i < lats.length; i++) {
         path.add(LatLng(lats[i], lngs[i]));
       }

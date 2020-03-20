@@ -65,7 +65,7 @@ class WebMaps implements CrossMaps {
   @override
   void setPolyline(List<double> lats, List<double> lngs) {
     List<LatLng> path = [];
-    if ((lats != null) && (lngs != null)){
+    if ((lats != null) && (lngs != null)) {
       for (int i = 0; i < lats.length; i++) {
         path.add(LatLng(lats[i], lngs[i]));
       }
